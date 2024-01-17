@@ -1,0 +1,2 @@
+Essa pasta será reservada para guardar os arquivos referentes ao MSW (Mock) que
+vai interceptar uma request para API e retornar dados falsos para fins de testes

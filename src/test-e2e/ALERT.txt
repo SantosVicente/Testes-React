@@ -1,0 +1,3 @@
+Essa pasta será reservada para guardar os arquivos referentes ao Playwright que
+vai conter os testes E2E para testar um fluxo completo de uma aplicação que irei
+desenvolver a fins de estudo
