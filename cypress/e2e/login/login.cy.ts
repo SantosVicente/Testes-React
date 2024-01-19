@@ -2,32 +2,21 @@
 
 describe('template spec', () => {
   it('Realizar login com sucesso', () => {
-    cy.visit('https://www.saucedemo.com/v1/');
-
-    //crie um script de teste que irá buscar o campo #user-name e digitar o texto "standard_user"
-    cy.get('[data-test="username"]').type('standard_user');
-    cy.get('[data-test="password"]').type('secret_sauce');
-    cy.get('#login-button').click();
+    cy.test_login('standard_user', 'secret_sauce');
     cy.get('.product_label').should('contain', 'Products');
   });
 
-  it('Validação credencial incorreta', () => {
-    cy.visit('https://www.saucedemo.com/v1/');
+  it('Validação de credenciais incorreta', () => {
+    cy.test_login('standard_user1', 'secret_sauce');
+    cy.get('[data-test="error"]').should(
+      'contain',
+      'Epic sadface: Username and password do not match any user in this service'
+    );
 
-    //crie um script de teste que irá buscar o campo #user-name e digitar o texto "standard_user"
-    cy.get('[data-test="username"]').type('standard_user');
-    cy.get('[data-test="password"]').type('secret_sauce');
-    cy.get('#login-button').click();
-    cy.get('.product_label').should('contain', 'Products');
-  });
-
-  it('Validação de senha incorreta', () => {
-    cy.visit('https://www.saucedemo.com/v1/');
-
-    //crie um script de teste que irá buscar o campo #user-name e digitar o texto "standard_user"
-    cy.get('[data-test="username"]').type('standard_user');
-    cy.get('[data-test="password"]').type('secret_sauce');
-    cy.get('#login-button').click();
-    cy.get('.product_label').should('contain', 'Products');
+    cy.test_login('standard_user', 'secret_sauce1');
+    cy.get('[data-test="error"]').should(
+      'contain',
+      'Epic sadface: Username and password do not match any user in this service'
+    );
   });
 });
