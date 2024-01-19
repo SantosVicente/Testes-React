@@ -1,4 +1,9 @@
 /// <reference types="cypress" />
+// comandos para usar na CLI:
+// - npx cypress open
+// - npx cypress run
+// - npx cypress run --spec "cypress/e2e/login/login.cy.ts"
+// - npx cypress run --spec "cypress/e2e/dashboard/addProductToCart.cy.ts"
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
